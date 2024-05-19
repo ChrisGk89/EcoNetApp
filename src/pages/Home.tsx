@@ -1,23 +1,31 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>EcoNet</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+      <IonContent>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Featured Projects</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            {/* Add carousel or list of featured projects */}
+          </IonCardContent>
+        </IonCard>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Recent Activity</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            {/* Add recent activity feed */}
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

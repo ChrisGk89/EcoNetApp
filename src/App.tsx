@@ -1,8 +1,14 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact, IonTabBar, IonTabButton, IonIcon, IonLabel, IonTabs} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { home, leaf, cart, people, person } from 'ionicons/icons';
+
 import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Marketplace from './pages/Marketplace';
+import Resources from './pages/Resources';
+import Profile from './pages/Profile';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -28,14 +34,38 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
+    <IonTabs>
+        <IonRouterOutlet>
+          <Route path="/home" component={Home} exact={true} />
+          <Route path="/projects" component={Projects} exact={true} />
+          <Route path="/marketplace" component={Marketplace} exact={true} />
+          <Route path="/resources" component={Resources} exact={true} />
+          <Route path="/profile" component={Profile} exact={true} />
+          <Route exact path="/" render={() => <Redirect to="/home" />} />
+        </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/home">
+            <IonIcon icon={home} />
+            <IonLabel>Home</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="projects" href="/projects">
+            <IonIcon icon={leaf} />
+            <IonLabel>Projects</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="marketplace" href="/marketplace">
+            <IonIcon icon={cart} />
+            <IonLabel>Marketplace</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="resources" href="/resources">
+            <IonIcon icon={people} />
+            <IonLabel>Resources</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="profile" href="/profile">
+            <IonIcon icon={person} />
+            <IonLabel>Profile</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
