@@ -4,11 +4,14 @@ import { IonApp, IonRouterOutlet, setupIonicReact, IonTabBar, IonTabButton, IonI
 import { IonReactRouter } from '@ionic/react-router';
 import { home, leaf, cart, people, person } from 'ionicons/icons';
 
+import Splash from './pages/Splash';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Marketplace from './pages/Marketplace';
 import Resources from './pages/Resources';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,12 +39,17 @@ const App: React.FC = () => (
     <IonReactRouter>
     <IonTabs>
         <IonRouterOutlet>
+          <Route path="/splash" component={Splash} exact={true} />
+          <Route path="/login" component={Login} exact={true} />
+          <Route path="/signup" component={SignUp} exact={true} />
           <Route path="/home" component={Home} exact={true} />
           <Route path="/projects" component={Projects} exact={true} />
           <Route path="/marketplace" component={Marketplace} exact={true} />
           <Route path="/resources" component={Resources} exact={true} />
           <Route path="/profile" component={Profile} exact={true} />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Redirect from="/" to="/login" exact />
+          {/* <Redirect from="/" to="/splash" exact /> */}
+          {/* <Route exact path="/" render={() => <Redirect to="/home" />} /> */}
         </IonRouterOutlet>
           <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">

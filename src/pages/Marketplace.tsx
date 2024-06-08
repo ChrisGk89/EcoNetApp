@@ -1,3 +1,4 @@
+// src/pages/Marketplace/Marketplace.tsx
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonThumbnail } from '@ionic/react';
 
@@ -6,19 +7,19 @@ const Marketplace: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Marketplace</IonTitle>
+          <IonTitle className="text-center text-2xl font-bold text-green-600">Marketplace</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="ion-padding">
         <IonList>
-          <IonItem>
-            <IonThumbnail slot="start">
-              <img src="path-to-product-image" alt="Product" />
+          <IonItem className="bg-white shadow-md rounded-lg mb-4">
+            <IonThumbnail slot="start" className="rounded-md">
+              <img src="path-to-product-image" alt="Product" className="object-cover rounded-md" />
             </IonThumbnail>
-            <IonLabel>
-              <h2>Product Name</h2>
-              <p>Product Description</p>
-              <p>$Price</p>
+            <IonLabel className="ml-2">
+              <h2 className="text-lg font-semibold text-gray-800">Product Name</h2>
+              <p className="text-sm text-gray-600">Product Description</p>
+              <p className="text-lg font-semibold text-green-600">$Price</p>
             </IonLabel>
           </IonItem>
           {/* Repeat IonItem for more products */}
