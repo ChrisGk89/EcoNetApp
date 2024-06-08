@@ -2,15 +2,16 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider, OAuthProvider } from 'firebase/auth';
+import { config } from './config';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC0XtP2xOaO0eCT4jzuezXrLgWZbCpxwKw",
-    authDomain: "econet-56c9c.firebaseapp.com",
-    projectId: "econet-56c9c",
-    storageBucket: "econet-56c9c.appspot.com",
-    messagingSenderId: "626422241981",
-    appId: "1:626422241981:web:02bad584107522d1fbb5d4",
-    measurementId: "G-TNX66JNBGT"
+    apiKey: config.apiKey,
+    authDomain: config.authDomain,
+    projectId: config.projectId,
+    storageBucket: config.storageBucket,
+    messagingSenderId: config.messagingSenderId,
+    appId: config.appId,
+    measurementId: config.measurementId
 };
 
 // Initialize Firebase
